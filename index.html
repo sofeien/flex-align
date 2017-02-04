@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>flex布局演示</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        div.container {
+            text-align: center;
+        }
+        div.row {
+            text-align: left;
+        }
+        div.flexbox {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            display: flex;
+            margin: 20px auto;
+        }
+        
+        .divbox {
+            background-color: orange;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            line-height:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="flexbox"></div>
+        <div>
+            <label for="boxdiv">盒子个数：</label>
+            <input name="boxdiv" id="boxdiv" type="number" value="5">
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span class="col-sm-3">flex-direction属性:&nbsp;</span>
+                <label class="radio-inline">
+                    <input type="radio" name="flex-direction" value="row">row
+                </label>
+                        <label class="radio-inline">
+                    <input type="radio" name="flex-direction" value="row-reverse">row-reverse
+                </label>
+                        <label class="radio-inline">
+                    <input type="radio" name="flex-direction" value="column">column
+                </label>
+                        <label class="radio-inline">
+                    <input type="radio" name="flex-direction" value="column-reverse">column-reverse
+                </label>
+                        <label class="radio-inline">
+                    <input type="radio" name="flex-direction" value="row">默认row
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span  class="col-sm-3">flex-wrap属性：&nbsp;</span>
+                <label class="radio-inline">
+                    <input type="radio" name="flex-flow" value="nowrap">nowrap
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="flex-flow" value="wrap">wrap
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="flex-flow" value="wrap-reverse">wrap-reverse
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="flex-flow" value="nowrap">默认nowrap
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span class="col-sm-3">flex-flow属性：</span>flex-direction和flex-wrap的简写
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span  class="col-sm-3">justify-content属性：&nbsp;</span>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="flex-start">flex-start
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="flex-end">flex-end
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="center">center
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="space-between">space-between
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="space-around">space-around
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="justify-content" value="flex-start">默认flex-start
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span  class="col-sm-3">align-items属性：&nbsp;</span>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="flex-start">flex-start
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="flex-end">flex-end
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="center">center
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="baseline">baseline
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="stretch">stretch
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-items" value="stretch">默认stretch
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <span  class="col-sm-3">align-content属性：&nbsp;</span>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="flex-start">flex-start
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="flex-end">flex-end
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="center">center
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="space-between">space-between
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="space-around">space-around
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="stretch">stretch
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="align-content" value="stretch">默认stretch
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            var addBox = function(n) {
+                    $('div.flexbox').empty();
+                    n = parseInt(n);
+                    for (var i = 1; i < n + 1; i++) {
+                        var fontSize = Math.floor(Math.random()*(20-10+1)+10);
+                        var divbox = $('<div></div>');
+                        divbox.addClass('divbox');
+                        divbox.text(i);
+                        divbox.css('font-size',fontSize);
+                        $('div.flexbox').append(divbox);
+                    }
+                }
+                //为设置小盒增加相应
+            $('#boxdiv').change(function() {
+                addBox(this.value);
+            });
+            $('#boxdiv').change();
+            //为flex-direction增加响应
+            $('input[name="flex-direction"]').click(function() {
+                $('div.flexbox').css('flex-direction', this.value);
+            });
+            //为flex-wrap增加响应
+            $('input[name="flex-flow"]').click(function(){
+                $('div.flexbox').css('flex-wrap',this.value);
+            });
+            //为justify-content增加响应
+            $('input[name="justify-content"]').click(function(){
+                $('div.flexbox').css('justify-content',this.value);
+            });
+            //为align-items增加响应
+            $('input[name="align-items"]').click(function(){
+                $('div.flexbox').css('align-items',this.value);
+            });
+            //为align-content增加响应
+            $('input[name="align-content"]').click(function(){
+                $('div.flexbox').css('align-content',this.value);
+            });
+        });
+    </script>
+</body>
+
+</html>
